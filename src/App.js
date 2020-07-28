@@ -1,23 +1,24 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import about from "./pages/about";
-import contact from "./pages/contact";
+import home from "./pages/home";
+import login from "./pages/login";
+import signup from "./pages/signup";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
- 
+     <Navbar />
         <Switch>
           <Route
-            path="/about"
+            path="/login"
             //  render={()=> <Header /> } // Cho phép render function trực tiếp
-            component={about}
+            component={login}
           />
-          <Route path="/contact" component={contact} />
+          <Route path="/"  component={home} />
+          <Route path="/signup" component={signup} />
         </Switch>
       </Router>
     </div>
