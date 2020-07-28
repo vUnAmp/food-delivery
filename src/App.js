@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import about from "./pages/about";
+import contact from "./pages/contact";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+ 
+        <Switch>
+          <Route
+            path="/about"
+            //  render={()=> <Header /> } // Cho phép render function trực tiếp
+            component={about}
+          />
+          <Route path="/contact" component={contact} />
+        </Switch>
+      </Router>
     </div>
   );
 }
